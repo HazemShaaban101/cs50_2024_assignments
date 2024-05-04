@@ -1,0 +1,4 @@
+# ninja log v5
+3	170	7320417886100265	build.ninja	fe60c5ef236f7e2b
+1	101	7320358083311297	CMakeFiles/scrabble.dir/scrabble.c.obj	f32a929356e31ae0
+102	245	7320358084672389	scrabble.exe	eeaa651f892aa280

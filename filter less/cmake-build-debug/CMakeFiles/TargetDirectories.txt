@@ -1,0 +1,3 @@
+C:/Users/Hazem/Desktop/Projects/filter less/cmake-build-debug/CMakeFiles/filter_less.dir
+C:/Users/Hazem/Desktop/Projects/filter less/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Hazem/Desktop/Projects/filter less/cmake-build-debug/CMakeFiles/rebuild_cache.dir

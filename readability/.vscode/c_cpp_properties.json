@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:\\mingw-w64-v11.0.0\\mingw-w64-headers\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\mingw-w64-v11.0.0\\build-aux\\install-sh"
+        }
+    ],
+    "version": 4
+}
