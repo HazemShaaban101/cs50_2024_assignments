@@ -13,14 +13,16 @@
 						"C:/CLion2022.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include",
 						"C:/CLion2022.1/bin/mingw/include",
 						"C:/CLion2022.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed",
-						"C:/CLion2022.1/bin/mingw/x86_64-w64-mingw32/include"
+						"C:/CLion2022.1/bin/mingw/x86_64-w64-mingw32/include",
+						"/MinGW/include"
 					],
 					"linkDirectories" : 
 					[
 						"C:/CLion2022.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0",
 						"C:/CLion2022.1/bin/mingw/lib/gcc",
 						"C:/CLion2022.1/bin/mingw/x86_64-w64-mingw32/lib",
-						"C:/CLion2022.1/bin/mingw/lib"
+						"C:/CLion2022.1/bin/mingw/lib",
+						"/MinGW/lib"
 					],
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : 

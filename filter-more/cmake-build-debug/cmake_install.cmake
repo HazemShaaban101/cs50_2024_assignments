@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Hazem/Desktop/Projects/filter-more
+# Install script for directory: C:/Users/Hazem/Desktop/cs50 assignments/cs50_2024_assignments/filter-more
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Hazem/Desktop/Projects/filter-more/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Hazem/Desktop/cs50 assignments/cs50_2024_assignments/filter-more/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Hazem/Desktop/Projects/filter-more/cmake-build-debug",
-		"source" : "C:/Users/Hazem/Desktop/Projects/filter-more"
+		"build" : "C:/Users/Hazem/Desktop/cs50 assignments/cs50_2024_assignments/filter-more/cmake-build-debug",
+		"source" : "C:/Users/Hazem/Desktop/cs50 assignments/cs50_2024_assignments/filter-more"
 	},
 	"version" : 
 	{
