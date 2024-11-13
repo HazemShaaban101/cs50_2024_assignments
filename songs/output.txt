@@ -1,0 +1,104 @@
++---------------------------------------------------------+-----+
+|                          name                           | id  |
++---------------------------------------------------------+-----+
+| God's Plan                                              | 1   |
+| SAD!                                                    | 2   |
+| rockstar (feat. 21 Savage)                              | 3   |
+| Psycho (feat. Ty Dolla $ign)                            | 4   |
+| In My Feelings                                          | 5   |
+| Better Now                                              | 6   |
+| I Like It                                               | 7   |
+| One Kiss (with Dua Lipa)                                | 8   |
+| IDGAF                                                   | 9   |
+| FRIENDS                                                 | 10  |
+| Havana                                                  | 11  |
+| Lucid Dreams                                            | 12  |
+| Nice For What                                           | 13  |
+| Girls Like You (feat. Cardi B)                          | 14  |
+| The Middle                                              | 15  |
+| All The Stars (with SZA)                                | 16  |
+| no tears left to cry                                    | 17  |
+| X                                                       | 18  |
+| Moonlight                                               | 19  |
+| Look Alive (feat. Drake)                                | 20  |
+| These Days (feat. Jess Glynne, Macklemore & Dan Caplen) | 21  |
+| Te Bote - Remix                                         | 22  |
+| Mine                                                    | 23  |
+| Youngblood                                              | 24  |
+| New Rules                                               | 25  |
+| Shape of You                                            | 26  |
+| Love Lies (with Normani)                                | 27  |
+| Meant to Be (feat. Florida Georgia Line)                | 28  |
+| Jocelyn Flores                                          | 29  |
+| Perfect                                                 | 30  |
+| Taste (feat. Offset)                                    | 31  |
+| Solo (feat. Demi Lovato)                                | 32  |
+| I Fall Apart                                            | 33  |
+| Nevermind                                               | 34  |
+| Echame La Culpa                                         | 35  |
+| Eastside (with Halsey & Khalid)                         | 36  |
+| Never Be the Same                                       | 37  |
+| Wolves                                                  | 38  |
+| changes                                                 | 39  |
+| In My Mind                                              | 40  |
+| River (feat. Ed Sheeran)                                | 41  |
+| Dura                                                    | 42  |
+| SICKO MODE                                              | 43  |
+| Thunder                                                 | 44  |
+| Me Niego                                                | 45  |
+| Jackie Chan                                             | 46  |
+| Finesse (Remix) [feat. Cardi B]                         | 47  |
+| Back To You - From 13 Reasons Why                       | 48  |
+| Let You Down                                            | 49  |
+| Call Out My Name                                        | 50  |
+| Ric Flair Drip (& Metro Boomin)                         | 51  |
+| Happier                                                 | 52  |
+| Too Good At Goodbyes                                    | 53  |
+| Freaky Friday (feat. Chris Brown)                       | 54  |
+| Believer                                                | 55  |
+| FEFE (feat. Nicki Minaj & Murda Beatz)                  | 56  |
+| Rise                                                    | 57  |
+| Body (feat. brando)                                     | 58  |
+| XO TOUR Llif3                                           | 59  |
+| Sin Pijama                                              | 60  |
+| 2002                                                    | 61  |
+| Nonstop                                                 | 62  |
+| Fuck Love (feat. Trippie Redd)                          | 63  |
+| In My Blood                                             | 64  |
+| Silence                                                 | 65  |
+| God is a woman                                          | 66  |
+| Dejala que vuelva (feat. Manuel Turizo)                 | 67  |
+| Flames                                                  | 68  |
+| What Lovers Do                                          | 69  |
+| Taki Taki (with Selena Gomez, Ozuna & Cardi B)          | 70  |
+| Let Me Go (with Alesso, Florida Georgia Line & watt)    | 71  |
+| Feel It Still                                           | 72  |
+| Pray For Me (with Kendrick Lamar)                       | 73  |
+| Walk It Talk It                                         | 74  |
+| Him & I (with Halsey)                                   | 75  |
+| Candy Paint                                             | 76  |
+| Congratulations                                         | 77  |
+| 1, 2, 3 (feat. Jason Derulo & De La Ghetto)             | 78  |
+| Criminal                                                | 79  |
+| Plug Walk                                               | 80  |
+| lovely (with Khalid)                                    | 81  |
+| Stir Fry                                                | 82  |
+| HUMBLE.                                                 | 83  |
+| Vaina Loca                                              | 84  |
+| Perfect Duet (Ed Sheeran & Beyonc?)                     | 85  |
+| Corazon (feat. Nego do Borel)                           | 86  |
+| Young Dumb & Broke                                      | 87  |
+| Siguelo Bailando                                        | 88  |
+| Downtown                                                | 89  |
+| Bella                                                   | 90  |
+| Promises (with Sam Smith)                               | 91  |
+| Yes Indeed                                              | 92  |
+| I Like Me Better                                        | 93  |
+| This Is Me                                              | 94  |
+| Everybody Dies In Their Nightmares                      | 95  |
+| Rewrite The Stars                                       | 96  |
+| I Miss You (feat. Julia Michaels)                       | 97  |
+| No Brainer                                              | 98  |
+| Dusk Till Dawn - Radio Edit                             | 99  |
+| Be Alright                                              | 100 |
++---------------------------------------------------------+-----+

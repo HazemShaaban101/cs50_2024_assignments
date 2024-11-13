@@ -1,0 +1,4 @@
+to calculate average of energy, valence, and danceability of the 100 songs and present them in a table we can use:
+SELECT AVG(energy), AVG(valence), AVG(danceability) from songs;
+
+but that is not the best way to decide the aura of a person based on their most replayed songs. instead i would use the average listen time to different genres to paint a picture of their mood throughout the year, then i would average all the moods into a single yearly aura
