@@ -1,99 +1,85 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 
--- finds the ID of the crime and more information about time and witnesses
-select * from crime_scene_reports where month = 7 and day = 28 and street = 'Humphrey Street';
+-- first step: check crime log to find out more information on what happened
+SELECT * FROM crime_Scene_reports
+WHERE year = 2023
+AND month = 7
+AND day = 28
+AND street = 'Humphrey Street';
 
--- three witnesses saw the thief and were interviewed the same day,
--- i gotta find out more info from their interviews.
+-- now i know some basic info about the crime, there are 3 witnesses, all interviewed the same day, and they all mentioned something about the bakery
+
+-- second step: figure out what the whitnesses said about the thief
+SELECT * FROM interviews
+WHERE year = 2023
+AND month = 7
+AND day = 28;
+
+-- from that we figure out some key notes to solving this mystery
+	-- 1- thief left within 10 minutes of the time of theft, this means between 10:15 and 10:25
+	-- 2- he withdrew cash from the ATM on Leggett Street earlier that day
+	-- 3- he made a phone call that lasted less than a minute
+	-- 4- his accomplice booked the earliest flight leaving Fiftyville the next day
 
 
--- look through interviews that happened that day, you will find useful information on the thief
-select * from interviews where year = 2023 and month = 7 and day = 28;
+-- third step: built a query to find the thief based on the witness info
+SELECT * FROM people
+WHERE license_plate IN
+	(SELECT license_plate FROM bakery_security_logs
+	WHERE year = 2023
+	AND month = 7
+	AND day = 28
+	AND hour = 10
+	AND minute > 15
+	AND minute < 25
+	AND activity = 'exit')
 
--- after looking i found out the thief took his car within 10 minutes from the theft
--- the thief also withdrew some money from the atm on Leggett Street earlier that morning
--- while the thief was leaving, he called his accomplice and told him to buy plane tickets for the next day
+AND id IN
+	(SELECT person_id FROM bank_accounts
+	WHERE account_number IN
+		(SELECT account_number FROM atm_transactions
+		WHERE year = 2023
+		AND month = 7
+		AND day = 28
+		AND atm_location = 'Leggett Street'
+		AND transaction_type = 'withdraw'))
 
+AND phone_number IN
+	(SELECT caller FROM phone_calls
+	WHERE year = 2023
+	AND month = 7
+	AND day = 28
+	AND duration < 60)
 
--- find out information of people spotted leaving the bakery after the crime within the timeframe
--- who also withdrew money from the atm on Leggett Street earlier that day
+AND passport_number IN
+	(SELECT passport_number FROM passengers
+	WHERE flight_id IN
+		(SELECT id FROM flights
+		WHERE year = 2023
+		AND month = 7
+		AND day = 29
+		AND origin_airport_id IN
+			(SELECT id FROM airports
+			WHERE city = 'Fiftyville') ORDER BY hour LIMIT 1));
 
-select * from people where license_plate in
-	(select license_plate from bakery_security_logs where year = 2023 and month = 7 and day = 28 and hour = 10 and minute > 15 and minute < 25)
-and id in
-	(select person_id from bank_accounts where account_number in
-		(select account_number from atm_transactions where year = 2023 and month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw'));
-
--- i now have four suspects
---+--------+-------+----------------+-----------------+---------------+
---|   id   | name  |  phone_number  | passport_number | license_plate |
---+--------+-------+----------------+-----------------+---------------+
---| 396669 | Iman  | (829) 555-5269 | 7049073643      | L93JTIZ       |
---| 467400 | Luca  | (389) 555-5198 | 8496433585      | 4328GD8       |
---| 514354 | Diana | (770) 555-1861 | 3592750733      | 322W7JE       |
---| 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
---+--------+-------+----------------+-----------------+---------------+
-
--- now to find the thief, i need to crosscheck the list of suspects with the people with flights leaving fiftyville the next day, and for ease of use i will save them into a new TABLE
-create table suspects_with_flights as
-select * from people where passport_number in
-	(select passport_number from passengers where flight_id in
-		(select id from flights where year = 2023 and month = 7 and day = 29 and origin_airport_id in
-			(select id from airports where city = 'Fiftyville')))
-and passport_number in
-	(select passport_number from people where license_plate in
-		(select license_plate from bakery_security_logs where year = 2023 and month = 7 and day = 28 and hour = 10 and minute > 15 and minute < 25)
-	and id in
-		(select person_id from bank_accounts where account_number in
-			(select account_number from atm_transactions where year = 2023 and month = 7 and day = 28 and atm_location = 'Leggett Street' and transaction_type = 'withdraw')));
-			
--- so now i can use select * from suspects_with_flights to find out current suspects_with_flights
-select * from suspects_with_flights;
-
--- the last search yields 3 suspects
+-- this gives us the thief info
 -- +--------+-------+----------------+-----------------+---------------+
 -- |   id   | name  |  phone_number  | passport_number | license_plate |
 -- +--------+-------+----------------+-----------------+---------------+
--- | 467400 | Luca  | (389) 555-5198 | 8496433585      | 4328GD8       |
--- | 514354 | Diana | (770) 555-1861 | 3592750733      | 322W7JE       |
 -- | 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
 -- +--------+-------+----------------+-----------------+---------------+
 
--- the witness mentioned something crucial, the thief told their friend in the call to book the earliest flight leaving from fiftyville the next day,
--- so if i list flights leaving fiftyville on the next day that have passengers from the list of suspects, and order it by time of flight, i will get the flight of the suspect
-select * from flights where year = 2023 and month = 7 and day = 29 and id in
-	(select flight_id from passengers where passport_number in
-		(select passport_number from people where passport_number in
-			(select passport_number from suspects_with_flights)
-		and phone_number in
-			(select caller from phone_calls where year = 2023 and month = 7 and day = 28 and duration < 60))) order by hour;
+-- now lets use this to build the final answer table
 
--- from this query we get the earliest flight with a passenger from our suspect list that made a phone call on the day of the theft that lasted less than a minute is this :
--- +----+-------------------+------------------------+------+-------+-----+------+--------+
--- | id | origin_airport_id | destination_airport_id | year | month | day | hour | minute |
--- +----+-------------------+------------------------+------+-------+-----+------+--------+
--- | 36 | 8                 | 4                      | 2023 | 7     | 29  | 8    | 20     |
+-- fourth step: find the city the thief escaped to, and his accomplice, and put them all IN a nice neat table
+SELECT (SELECT name FROM people WHERE id = 686048) as thief, (SELECT city FROM airports WHERE id IN
+(SELECT destination_airport_id FROM flights WHERE year = 2023 AND month = 7 AND day = 29 AND id IN
+(SELECT flight_id FROM passengers WHERE passport_number = 5773159633))) as escape_city, name as accomplice FROM people WHERE phone_number IN
+(SELECT receiver FROM phone_calls WHERE year = 2023 AND month = 7 AND day = 28 AND caller = '(367) 555-5533' AND duration < 60);
 
-
--- this means that whoever is on that flight is our suspect so we search for the one on the flight from suspect list who made a short phone call on the day of the crime
-select name from suspects_with_flights where passport_number in
-	(select passport_number from passengers where flight_id = 36)
-and phone_number in
-	(select phone_number from suspects_with_flights where phone_number in
-		(select caller from phone_calls where year = 2023 and month = 7 and day = 28 and duration < 60));
-		
--- and voila, the thief is Bruce
-
--- now we get the city he travelled to and the accomplice he called
-select (select city from airports where id = 4) as city, name from people where phone_number in
-	(select receiver from phone_calls where id in
-		(select id from phone_calls where year = 2023 and month = 7 and day = 28 and duration < 60 and caller in
-			(select phone_number from suspects_with_flights where name = 'Bruce')));
-			
--- this yields the desired info
--- +---------------+-------+
--- |     city      | name  |
--- +---------------+-------+
--- | New York City | Robin |
--- +---------------+-------+
-
+-- and finally we get the answers we seek
+-- +-------+---------------+------------+
+-- | thief |  escape_city  | accomplice |
+-- +-------+---------------+------------+
+-- | Bruce | New York City | Robin      |
+-- +-------+---------------+------------+
