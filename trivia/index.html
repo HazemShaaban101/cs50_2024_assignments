@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function button_press(id)
+            {
+                if (id == 'fivetickles')
+                {
+                    document.querySelector('#fivetickles').style.backgroundColor = 'red';
+                    document.querySelector('#mc_answer').textContent = "incorrect!";
+                }
+                else if (id == 'seventickles')
+                {
+                    document.querySelector('#seventickles').style.backgroundColor = 'red';
+                    document.querySelector('#mc_answer').textContent = "incorrect!";
+                }
+                else if (id == 'tentickles')
+                {
+                    document.querySelector('#' + id).style.backgroundColor = 'green';
+                    document.querySelector('#mc_answer').textContent = "correct!";
+                }
+                else if (id == 'thirteentickles')
+                {
+                    document.querySelector('#' + id).style.backgroundColor = 'red';
+                    document.querySelector('#mc_answer').textContent = "incorrect!";
+                }
+            }
+
+            function country_check(id)
+            {
+                let country = document.querySelector('#' + id).value;
+                if (country  == 'Egypt')
+                {
+                    document.querySelector('#' + id).style.borderColor = "green";
+                    document.getElementById('country_answer').textContent = 'Correct!';
+                }
+                else
+                {
+                    document.querySelector('#' + id).style.borderColor = "red";
+                    document.querySelector('#country_answer').textContent = 'Incorrect!';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+
+                <h3>
+                    How many tickles does it take to make an octopus laugh?!
+                </h3>
+                <h5 id="mc_answer"></h5>
+                <button id="fivetickles" onclick="button_press(id);">
+                    5 tickles
+                </button>
+                <button id="seventickles" onclick="button_press(id);">
+                    7 tickles
+                </button>
+                <button id="tentickles" onclick="button_press(id);">
+                    10 tickles
+                </button>
+                <button id="thirteentickles" onclick="button_press(id);">
+                    13 tickles
+                </button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <form onsubmit="country_check('country'); return false;">
+                    <h3>
+                        which country am i from?
+                    </h3>
+                    <input autocomplete="off" autofocus id="country" placeholder="Enter Country name" type="text">
+                    <input type="submit">
+                    <h5 id="country_answer"></h5>
+
+                 </form>
+            </div>
+        </div>
+    </body>
+</html>
